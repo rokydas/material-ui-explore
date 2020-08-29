@@ -6,7 +6,10 @@ const useStyles = makeStyles({
     },
   });
 
-const News = () => {
+const News = (props) => {
+    const data = props.data; 
+    const { urlToImage, title, description } = data;
+    // console.log(props.data);
     const classes = useStyles();
     return (
         <Card className={classes.root}>
@@ -15,16 +18,15 @@ const News = () => {
                     component="img"
                     alt="Contemplative Reptile"
                     height="140"
-                    image=""
+                    image={urlToImage}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        {description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
